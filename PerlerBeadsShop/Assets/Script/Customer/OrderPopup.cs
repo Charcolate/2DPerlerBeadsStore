@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class OrderPopup : MonoBehaviour
 {
@@ -17,6 +18,18 @@ public class OrderPopup : MonoBehaviour
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(Hide);
+        }
+    }
+    
+    private void Update()
+    {
+        // Close popup when ESC is pressed
+        if (popupPanel != null && popupPanel.activeSelf)
+        {
+            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                Hide();
+            }
         }
     }
     

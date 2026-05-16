@@ -228,9 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d4a21494b752344a54998462f6142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerController
-  walkSpeed: 2
-  minWaitForOrder: 3
-  maxWaitForOrder: 8
+  walkSpeed: 5
+  minWaitForOrder: 2
+  maxWaitForOrder: 5
 --- !u!1 &7388522031298405135
 GameObject:
   m_ObjectHideFlags: 0
