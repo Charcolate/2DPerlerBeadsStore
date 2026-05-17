@@ -229,13 +229,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerController
   walkSpeed: 5
-  minWaitForOrder: 2
-  maxWaitForOrder: 5
-  canReOrder: 1
+  waitBeforeOrder: 5
+  enableReOrder: 1
   reOrderChance: 1
-  minWaitForReOrder: 1
-  maxWaitForReOrder: 2
+  reOrderDelay: 3
   maxReOrders: 3
+  autoLeaveDelay: 5
 --- !u!1 &7388522031298405135
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +486,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c454a4429701674f87d4418af7a4b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExclamationClick
-  OnExclamationClicked:
-    m_PersistentCalls:
-      m_Calls: []
-  orderPopup: {fileID: 0}
+  possibleMiniGames:
+  - {fileID: 3306116846797237350, guid: 4fde96efec585bb4aa6a6d4f5e4f003a, type: 3}

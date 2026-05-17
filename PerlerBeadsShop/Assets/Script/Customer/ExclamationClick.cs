@@ -1,9 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ExclamationClick : MonoBehaviour
 {
     private CustomerController customer;
     private OrderPopup popup;
+    
+    [Header("Mini-Game Settings")]
+    public List<GameObject> possibleMiniGames = new List<GameObject>(); // Drag prefabs here
     
     void Start()
     {
@@ -18,7 +22,6 @@ public class ExclamationClick : MonoBehaviour
     
     void OnMouseDown()
     {
-        // Check if popup is already open
         if (popup != null && popup.IsOpen())
         {
             Debug.Log("Popup already open, ignoring click on exclamation");
@@ -27,19 +30,34 @@ public class ExclamationClick : MonoBehaviour
         
         Debug.Log("Exclamation clicked!");
         
-        // Hide this exclamation
         gameObject.SetActive(false);
         
-        // Tell customer order was taken
         if (customer != null)
         {
             customer.OnOrderTaken();
         }
         
-        // Show popup
         if (popup != null)
         {
             popup.Show();
+        }
+        
+        StartRandomMiniGame();
+    }
+    
+    void StartRandomMiniGame()
+    {
+        if (possibleMiniGames.Count > 0)
+        {
+            int randomIndex = Random.Range(0, possibleMiniGames.Count);
+            GameObject selectedMiniGame = possibleMiniGames[randomIndex];
+            
+            if (selectedMiniGame != null)
+            {
+                // Instantiate the prefab (brand new copy each time)
+                Instantiate(selectedMiniGame);
+                Debug.Log($"Started mini-game: {selectedMiniGame.name}");
+            }
         }
     }
 }
