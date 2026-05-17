@@ -14,6 +14,8 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Seating System")]
     [SerializeField] private SeatManager seatManager;
     
+    private bool isSpawning = false;
+    
     private void Start()
     {
         if (spawnPoint == null)
@@ -23,7 +25,7 @@ public class CustomerSpawner : MonoBehaviour
         
         if (seatManager == null)
         {
-             seatManager = FindFirstObjectByType<SeatManager>();
+            seatManager = FindFirstObjectByType<SeatManager>();
         }
         
         StartCoroutine(SpawnRoutine());
@@ -31,7 +33,9 @@ public class CustomerSpawner : MonoBehaviour
     
     private IEnumerator SpawnRoutine()
     {
-        while (true)
+        isSpawning = true;
+        
+        while (isSpawning)
         {
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
@@ -42,8 +46,15 @@ public class CustomerSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("所有座位已满，停止生成客人！");
-                yield break;
+                Debug.Log("所有座位已满，等待空位...");
+                
+                // Wait and check again instead of stopping
+                while (!seatManager.HasEmptySeats())
+                {
+                    yield return new WaitForSeconds(1f); // Check every second
+                }
+                
+                Debug.Log("有空位了！继续生成客人...");
             }
         }
     }
