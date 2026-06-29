@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cm2o83fq63ghy"]
+
+[ext_resource type="Texture2D" uid="uid://c02ed6lldsn2j" path="res://Assets/PlaceHolders/Semi/Circle-blue.png" id="1_r150o"]
+[ext_resource type="Script" uid="uid://e2s8jw0evy7j" path="res://Scenes/main.gd" id="1_v1gob"]
+[ext_resource type="Texture2D" uid="uid://caj6v48qokcx8" path="res://Assets/PlaceHolders/Full/Square-Blue.png" id="2_idj7w"]
+[ext_resource type="Script" uid="uid://d4hui1yyqmnhj" path="res://pop_up_manager.gd" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://b45oh258fao6i" path="res://Scenes/guest_container.gd" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://coyt6wbem2jaj" path="res://Scenes/guest_manager.gd" id="4_v1gob"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idj7w"]
+bg_color = Color(0.98858684, 0.98892504, 0.98229855, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.837469, 0.8374691, 0.83746904, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[node name="Main" type="Node2D" unique_id=1174867388]
+position = Vector2(0, -1)
+script = ExtResource("1_v1gob")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1011443472]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+
+[node name="PopUpButton" type="TextureButton" parent="ColorRect" unique_id=1277437941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_r150o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PanelBase" type="Panel" parent="ColorRect" unique_id=1233699346]
+modulate = Color(0.5958281, 0.5958281, 0.5958281, 1)
+self_modulate = Color(1, 1, 1, 0.39215687)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopUpWindow" type="Panel" parent="ColorRect" unique_id=1943631471]
+custom_minimum_size = Vector2(1750, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -375.0
+offset_right = 750.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_idj7w")
+
+[node name="Tables" type="Node2D" parent="." unique_id=1279659267]
+position = Vector2(960, 540)
+
+[node name="Table1" type="Node2D" parent="Tables" unique_id=1938179699]
+position = Vector2(600, 0)
+
+[node name="SquareBlue" type="Sprite2D" parent="Tables/Table1" unique_id=1579733661]
+scale = Vector2(2, 1)
+texture = ExtResource("2_idj7w")
+
+[node name="CustomerSpot" type="Marker2D" parent="Tables/Table1" unique_id=1358260869]
+position = Vector2(0, -239)
+
+[node name="Table2" type="Node2D" parent="Tables" unique_id=809474057]
+
+[node name="SquareBlue" type="Sprite2D" parent="Tables/Table2" unique_id=451152903]
+scale = Vector2(2, 1)
+texture = ExtResource("2_idj7w")
+
+[node name="CustomerSpot" type="Marker2D" parent="Tables/Table2" unique_id=1295722038]
+position = Vector2(0, -239)
+
+[node name="Table3" type="Node2D" parent="Tables" unique_id=1225102804]
+position = Vector2(-600, 0)
+
+[node name="SquareBlue" type="Sprite2D" parent="Tables/Table3" unique_id=476965658]
+scale = Vector2(2, 1)
+texture = ExtResource("2_idj7w")
+
+[node name="CustomerSpot" type="Marker2D" parent="Tables/Table3" unique_id=678320173]
+position = Vector2(0, -239)
+
+[node name="GuestContainer" type="Node2D" parent="." unique_id=153220382]
+script = ExtResource("3_pbw6q")
+
+[node name="GuestManager" type="Node2D" parent="." unique_id=348943249]
+script = ExtResource("4_v1gob")
+
+[node name="PopUpManager" type="Node" parent="." unique_id=1700927990]
+script = ExtResource("3_kln2b")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2035779457]
+
+[node name="PopUpButton" type="TextureButton" parent="UI" unique_id=953771565]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_r150o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=337618342]
+position = Vector2(361, 303)
