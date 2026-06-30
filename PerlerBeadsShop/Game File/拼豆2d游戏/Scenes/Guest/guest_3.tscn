@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dkf8w4277l2gr"]
+
+[ext_resource type="Script" uid="uid://bnsaqakbpvjwf" path="res://Scenes/Guest/guest_3.gd" id="1_15x71"]
+[ext_resource type="Texture2D" uid="uid://sorofmtkwn3k" path="res://Assets/PlaceHolders/Full/Circle-Red.png" id="1_dwl8j"]
+[ext_resource type="Texture2D" uid="uid://c02ed6lldsn2j" path="res://Assets/PlaceHolders/Semi/Circle-blue.png" id="2_15x71"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1581373796]
+script = ExtResource("1_15x71")
+
+[node name="Appearance" type="Sprite2D" parent="." unique_id=1172932254]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dwl8j")
+
+[node name="CollisionDetection" type="Area2D" parent="." unique_id=1352759361]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetection" unique_id=1517666936]
+scale = Vector2(5, 5)
+debug_color = Color(0, 0.5950001, 0.7, 0.6901961)
+
+[node name="Timer" type="Node2D" parent="." unique_id=1776719268]
+
+[node name="! Button" type="TextureButton" parent="." unique_id=1890458018]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -197.99998
+offset_right = 90.0
+offset_bottom = -57.999985
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_15x71")
+ignore_texture_size = true
+stretch_mode = 0
